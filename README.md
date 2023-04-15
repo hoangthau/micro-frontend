@@ -1,6 +1,6 @@
 # Create-react-app module federation example
 
-The motivation for this repository is to enable us to use multiple separate builds to 
+The motivation for this repository is to enable us to use multiple separate builds to
 form a single application seamlessly, with as little configuration as possible.
 
 This repository represents an example on how to use module federation with apps jumpstarted
@@ -12,13 +12,14 @@ package in its own repository scattered across github.
 ## Configuration
 
 There's very little configuration involved. There is however two important files in each repository:
-- `modulefedration.config.js` 
+
+- `modulefedration.config.js`
 
 This is webpack's module federation config, see https://webpack.js.org/concepts/module-federation
 for more information. Module federation enables us to use multiple separate builds to form a single
 application.
 
-- `craco.config.js` 
+- `craco.config.js`
 
 Craco is the Create React App Configuration Override, an easy and comprehensible configuration layer
 for create-react-app. This is the config for it to enable us to add plugins, see https://github.com/dilanx/craco.
@@ -26,6 +27,7 @@ for create-react-app. This is the config for it to enable us to add plugins, see
 ## The magic that makes this work
 
 The two webpack plugins that make this possible:
+
 - https://github.com/bfaulk96/craco-mf
 
 `craco-mf` enables us to use module federation in our CRA application.
@@ -42,6 +44,7 @@ which components are exposed to other apps and which other apps we wish to reach
 they reside.
 
 Example for an app that uses a library build and is exposed to another container app:
+
 ```
 {
   name: "app2",
@@ -68,11 +71,12 @@ Example for an app that uses a library build and is exposed to another container
 ## What forms this example application
 
 There's three packages in this monorepo:
+
 - `library` (contains shared components)
 - `app2` (a standalone app that makes use of components and is also exposed to be used elsewhere)
-- `app1` (a container app that makes use of components and also includes app2)
+- `container` (a container app that makes use of components and also includes app2)
 
-App2 and app1 also contain routing via `react-router-dom` as any real-life react app probably
+App2 and container also contain routing via `react-router-dom` as any real-life react app probably
 would.
 
 ## Running in development
@@ -101,9 +105,9 @@ To start the app with docker-compose, run in root of repository:
 
 ### S3
 
-If we were to deploy the applications to S3, we would deploy each application separately to its own S3, 
+If we were to deploy the applications to S3, we would deploy each application separately to its own S3,
 each into their own respective buckets. The only configuration needed is to use the correct remote
-URLs in `.env` files in each of the packages, which would need to point to S3 URLs 
+URLs in `.env` files in each of the packages, which would need to point to S3 URLs
 instead of localhost URLs.
 
 E.g.:

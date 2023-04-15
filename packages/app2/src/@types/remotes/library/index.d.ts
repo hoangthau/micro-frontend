@@ -8,7 +8,7 @@ declare module "library/NameContextProvider" {
     export default _default;
 }
 declare module "library/Button" {
-    import { FC } from "react";
+    import { FC } from 'react';
     const Button: FC<{
         className?: string;
         text: string;
@@ -17,8 +17,8 @@ declare module "library/Button" {
     export default Button;
 }
 declare module "library/Logo" {
-    import { FC } from "react";
-    import { CSSProperties } from "styled-components";
+    import { FC } from 'react';
+    import { CSSProperties } from 'styled-components';
     const Logo: FC<{
         className?: string;
         style?: CSSProperties;
