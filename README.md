@@ -1,13 +1,11 @@
-# Create-react-app module federation example
+# Microfrontend with React and module federation
 
-The motivation for this repository is to enable us to use multiple separate builds to
+This app enable us to use multiple separate builds to
 form a single application seamlessly, with as little configuration as possible.
 
 This repository represents an example on how to use module federation with apps jumpstarted
 by `create-react-app` without ejecting the configuration.
 
-This is packed into a monorepo, but this is by no means a requirement. You could have each
-package in its own repository scattered across github.
 
 ## Configuration
 
@@ -102,14 +100,3 @@ apps is its own container, which serves a static production build behind `nginx`
 
 To start the app with docker-compose, run in root of repository:
 `docker-compose up`
-
-### S3
-
-If we were to deploy the applications to S3, we would deploy each application separately to its own S3,
-each into their own respective buckets. The only configuration needed is to use the correct remote
-URLs in `.env` files in each of the packages, which would need to point to S3 URLs
-instead of localhost URLs.
-
-E.g.:
-`LIBRARY_URL=http://library.s3-website-us-east-1.amazonaws.com`
-`APP2_URL=http://app2.s3-website-us-east-1.amazonaws.com`
