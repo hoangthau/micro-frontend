@@ -1,4 +1,12 @@
 # Microfrontend with React and module federation
+
+This app enable us to use multiple separate builds to
+form a single application seamlessly, with as little configuration as possible.
+
+This repository represents an example on how to use module federation with apps jumpstarted
+by `create-react-app` without ejecting the configuration.
+
+
 ## Configuration
 
 There's very little configuration involved. There is however two important files in each repository:
